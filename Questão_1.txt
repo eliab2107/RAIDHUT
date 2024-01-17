@@ -6,7 +6,5 @@ entre os intervalos conhecidos(Known_ranges), caso contrário não é preciso fa
 Após adicionar todos os intervalos conhecidos é necessário iterar sobre a lista final para garantir que os intervalos
 
 #OVERVIEW
-Gostei bastante desse desafio e gostei da minha solução final.
-O algoritmo funciona unindo todos os intervalos possiveis, entretando encontrei algumas limitações na minha solução:
-O problema lógico me parece resolvido de maneira satisfativel, mas só funciona com números naturai por causa da forma como
-a entrada esta sendo capturada e este acredito que seja o principal defeito atual.
+Gostei bastante desse desafio e gostei da minha solução final, apesar de a principio ter tentado bastante contornar o problema
+da eficiência o algoritmo ainda acaba caindo em um Big(O) preocupante, algo como 2N².

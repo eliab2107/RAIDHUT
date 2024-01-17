@@ -21,13 +21,15 @@ def intercecao_direita(intervalo_1: list, intervalo_2: list) -> bool:
     else:
         return False
 
+numeros = []
 
-range_initial = input().strip("()").split("),(")
 ranges = []
-
-#Organizando a entrada
+range_initial = input().strip("()").split("),(")
 for i in range_initial:
-    ranges.append([int(i[0]), int(i[2])])
+    numeros.append(i.split(","))
+for i in numeros:
+    ranges.append([int(i[0]), int(i[1])])
+
 
 #Garantindo que os pares estarão ordenados
 for i in ranges:
@@ -75,4 +77,5 @@ for i in range(len(known_ranges)):
             tot += 1
         break
 
-print(known_ranges, tot)
+#print(known_ranges) para ver os intervalos necessários.
+print(tot)
