@@ -22,7 +22,6 @@ def intercecao_direita(intervalo_1: list, intervalo_2: list) -> bool:
         return False
 
 numeros = []
-
 ranges = []
 range_initial = input().strip("()").split("),(")
 for i in range_initial:

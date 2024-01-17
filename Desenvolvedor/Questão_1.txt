@@ -1,10 +1,10 @@
+#EXPLICAÇÃO
 A solucao parte da ideia de que cada intervalo ao ser comparado com outro pode ter uma intersecção parcial, total ou nula
 Em caso de haver uma interseccao parcial é preciso apenas unir ambos os intervalos.
 Em caso de haver uma interseccao total é preciso selecionar a maior. Então, se o novo intervalo for maior será atualizado o valor
 entre os intervalos conhecidos(Known_ranges), caso contrário não é preciso fazer nada.
-
-Após adicionar todos os intervalos conhecidos é necessário iterar sobre a lista final para garantir que os intervalos
+Após adicionar todos os intervalos conhecidos é necessário iterar sobre a lista final por que entre os intervalos encontrados podem haver intersecções.
 
 #OVERVIEW
 Gostei bastante desse desafio e gostei da minha solução final, apesar de a principio ter tentado bastante contornar o problema
-da eficiência o algoritmo ainda acaba caindo em um Big(O) preocupante, algo como 2N².
+da eficiência o algoritmo ainda acaba caindo em um Big(O) preocupante, algo como 2N² ou mais se levar em consideração as operações para ajuste da entrada.
