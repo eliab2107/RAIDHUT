@@ -6,18 +6,28 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import { sequelize } from './DB/sequelize.js';
+import session from 'express-session';
+import dotenv from 'dotenv';
+
 
 const __path = path
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
+dotenv.config();
 // view engine setup
 app.set('views', __path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
+
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -28,6 +38,8 @@ app.use('/user', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -51,6 +63,7 @@ sequelize.sync()
   });
 
 
+  
 app.listen(3000, () => {
   console.log("ouvindo na porta 3000")
 })

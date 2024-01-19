@@ -21,6 +21,10 @@ const User = sequelize.define('User', {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    iv: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
     
   },
   {

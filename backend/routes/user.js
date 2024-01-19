@@ -1,20 +1,28 @@
 import express from 'express';
 import { User } from '../DB/models/Usuario.mjs';
+import {criptografarUser, criptografarCampo ,descriptografar} from '../cifras.js'
 const router = express.Router();
 
+//Retorna um booleano. Caso as senhas sejam iguais True.
+function checkPassword(password, passwordTest, iv){
+    return (descriptografar(password, iv) == passwordTest)
+}
+
 //criar conta
-router.post('/create', async (req, res, next) => {
-  //é melhor capturar o erro e tratar no catch
-  try {
+router.post('/create', async (req, res) => {
+    const nick = req.body.nick
+    try {
       const user = await User.findOne({
         where: {
-          nick: req.body.nick,
+          nick: nick
       }
       })
     if (user){
       res.status(401).json({error: 'Este nick já esta sendo usado'})
     }else{
-        const novoUser = await User.create(req.body);
+        //ultimo erro aqui
+        const userCryptografado = criptografarUser(req.body)
+        const novoUser = await User.create(userCryptografado);
         res.status(201).json(novoUser);
       } 
   }catch (err){
@@ -32,8 +40,11 @@ router.delete('/delete', async (req, res, next) => {
             id: req.body.id,
          }
         })
+        if (!user){
+            res.status(406).json({error: 'Conta não encontrada'})
+        }
         //pedindo senha para confirmar autorização
-        if (user.password == req.body.password){
+        else if (checkPassword(user.password, req.body.password, user.iv)){
             User.destroy({
                 where: {
                     id: req.body.id
@@ -59,9 +70,14 @@ router.patch('/changepassword', async (req, res, next) => {
     }
   })
   try {
-    if (user.password == body.password){
+    if (!user){
+        res.status(406).json({error: 'Conta não encontrada'})
+    }
+    //Checando a senha
+    
+    if (checkPassword(user.password, req.body.password, user.iv)){
       User.update(
-        {password: body.newPassword },
+        {password: criptografarCampo(body.newPassword, user.iv) },
         {where: {id: user.id}}
       )
       res.status(200).json('Senha alterada com sucesso')
@@ -88,12 +104,14 @@ router.patch('/changenick', async (req, res) => {
         })
         if (user){
             res.status(401).json('Este nick não esta disponível')
-        }else{
+        }else if (checkPassword(user.password, req.body.password, user.iv)){
             User.update(
                 {nick: body.newNick},
                 {where: {id:body.id}}
             )
             res.status(200).json('Nick alterado com sucesso')
+        }else {
+            res.status(401).json('Senha incorreta')
         }
     }catch (err){
         console.log('Erro ao alterar nick: ', err)
@@ -102,5 +120,34 @@ router.patch('/changenick', async (req, res) => {
 })
 
 //login
+router.post("/login", async (req, res) => {
+    const nick = req.body.nick
+    const password = req.body.password
+    try {
+        const user = await User.findOne({
+            where: {
+                nick: nick
+            }
+        })
+        if (!user){
+            res.status(400).json('Este nick não existe')
+        }else if(checkPassword(user.password, req.body.password, user.iv)) {
+            req.session.user = { id: user.id, username: user.nick };
+            res.status(200).json({ message: 'Login bem-sucedido', user: req.session.user });
+            //res.redirect('/index.html') NOVA PÁGINA APÓS O LOGIN
+        }else{
+            res.status(401).json('Senha incorreta')
+        }
+    }catch (err) {
+        console.log('Erro ao alterar nick: ', err)
+        res.status(500).json({error: 'Não foi possivel iniciar a seção, tente novamente mais tarde'})
+    }   
+})
+
+router.post("/logout", async (req, res) => {
+    req.session.destroy();
+    res.status(200).json({ message: 'Logout bem-sucedido' });
+})
 
 export default router;
+

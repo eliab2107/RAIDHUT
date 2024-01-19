@@ -38,7 +38,7 @@ Content-Type: application/json
 
 {
     "password": "eueueu",
-    "id": 3
+    "id": 2
 }
 
 
@@ -48,8 +48,8 @@ Content-Type: application/json
 
 {
     "password": "eueueu",
-    "id": 2,
-    "newPassword": "tututu"
+    "id": 4,
+    "newPassword": "eueutu"
 }
 ###
 PATCH http://localhost:3000/user/changenick
@@ -57,7 +57,8 @@ Content-Type: application/json
 
 {
     "id": 2,
-    "newNick": "zombie 11"
+    "newNick": "zombie 11",
+    "password": "eueueu"
 }
 ###
 POST  http://localhost:3000/create 
@@ -114,4 +115,13 @@ Content-Type: application/json
 
 {
     "userId":1
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "nick": "Storme2107",
+    "password": "eueueu"
 }
