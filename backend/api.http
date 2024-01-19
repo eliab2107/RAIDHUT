@@ -1,0 +1,117 @@
+POST  http://localhost:3000/user/create 
+Content-Type: application/json
+
+{
+    "name": "Eliab Bernardino",
+    "nick": "Storme2107",
+    "email": "Eliab2107@gmail.com",
+    "password": "eueueu"
+}
+
+###
+
+POST  http://localhost:3000/user/create 
+Content-Type: application/json
+
+{
+    "name": "Eliane de Paula",
+    "nick": "LordTyrion",
+    "email": "Eliab2107@gmail.com",
+    "password": "eueueu"
+}
+###
+
+
+POST  http://localhost:3000/user/create 
+Content-Type: application/json
+
+{
+    "name": "Eliab Bernardino",
+    "nick": "Zombie10",
+    "email": "Eliab2107@gmail.com",
+    "password": "eueueu"
+}
+
+###
+DELETE http://localhost:3000/user/delete 
+Content-Type: application/json 
+
+{
+    "password": "eueueu",
+    "id": 3
+}
+
+
+###
+PATCH http://localhost:3000/user/changepassword
+Content-Type: application/json 
+
+{
+    "password": "eueueu",
+    "id": 2,
+    "newPassword": "tututu"
+}
+###
+PATCH http://localhost:3000/user/changenick
+Content-Type: application/json 
+
+{
+    "id": 2,
+    "newNick": "zombie 11"
+}
+###
+POST  http://localhost:3000/create 
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "userName": "Eliab Bernardino",
+    "text": "Meu pimeiro Post glr"
+}
+
+###
+POST  http://localhost:3000/create 
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "userName": "Eliab Bernardino",
+    "text": "Meu segundo Post glr"
+}
+
+###
+POST  http://localhost:3000/create 
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "userName": "Eliab Bernardino",
+    "text": "Meu terceito Post glr"
+}
+###
+POST  http://localhost:3000/create 
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "userName": "Eliab Bernardino",
+    "text": "Meu quarto Post glr"
+}
+
+###
+DELETE   http://localhost:3000/delete
+Content-Type: application/json
+
+{
+    "id": 4,
+    "userId": 1
+}
+
+
+###
+GET   http://localhost:3000/getall
+Content-Type: application/json
+
+{
+    "userId":1
+}
