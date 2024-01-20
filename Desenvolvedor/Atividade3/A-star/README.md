@@ -1,6 +1,6 @@
 # A*
 
-Este projeto foi desenvolvido para a disciplina de sistemas inteligentes no Centro de Informática. Consiste na implementação do algoritmo A* para solucionar o seguinte problema:
+Este projeto foi desenvolvido para a disciplina de sistemas inteligentes no Centro de Informática em 2022.2. Consiste na implementação do algoritmo A* para solucionar o seguinte problema:
 
 ## O Problema do metrô de Paris 
 
