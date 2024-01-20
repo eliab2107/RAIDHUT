@@ -1,14 +1,26 @@
 import express from 'express';
-import {Post} from '../DB/models/Postagem.mjs'
-import { where } from 'sequelize';
+import {Post} from '../DB/models/Postagem.mjs';
+import {User} from '../DB/models/Usuario.mjs';
+import { Posts, accessLogStream } from '../logsModels.js';
+import morgan from 'morgan';
 const router = express.Router();
 
 //CRIAR POST
-router.post('/create', async (req, res, next) => {
+const createpost = morgan(Posts, { stream: accessLogStream } );
+router.post('/create', createpost, async (req, res, next) => {
+  const userId = req.body.userId
   try {
-    const post = await Post.create(req.body);
-    res.status(201).json(post)
-
+    const user = await User.findOne({
+      where: {
+        id: userId
+      }
+    })
+    if (user && user.nick == req.body.userNick){
+      const post = await Post.create(req.body);
+      res.status(201).json(post)
+    }else{
+      res.status(401).json({error: "Postagem não realizada"})
+    } 
   }catch (err) {
     console.log("Erro ao criar novo post: ", err)
     res.status(500).json({error: 'Não foi possivel realizar o post, tente novamente mais tarde'})
@@ -16,7 +28,7 @@ router.post('/create', async (req, res, next) => {
 });
 
 //APAGAR DELETE
-router.delete("/delete", async (req, res) => {
+router.delete("/delete", createpost, async (req, res) => {
   const body = req.body
   try {
     const post = await Post.findOne({
@@ -37,7 +49,7 @@ router.delete("/delete", async (req, res) => {
 })
 
 //PEGAR TODOS OS POSTS DE UM USUÁRIO
-router.get("/getall", async (req, res) => {
+router.get("/getall", createpost, async (req, res) => {
   try {
       
       const posts =  await Post.findAll({

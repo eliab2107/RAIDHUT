@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\quest2\\Desenvolvedor.csproj": {}
+    "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\atividade2\\Desenvolvedor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\quest2\\Desenvolvedor.csproj": {
+    "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\atividade2\\Desenvolvedor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\quest2\\Desenvolvedor.csproj",
+        "projectUniqueName": "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\atividade2\\Desenvolvedor.csproj",
         "projectName": "Desenvolvedor",
-        "projectPath": "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\quest2\\Desenvolvedor.csproj",
+        "projectPath": "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\atividade2\\Desenvolvedor.csproj",
         "packagesPath": "C:\\Users\\eliab\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\quest2\\obj\\",
+        "outputPath": "C:\\Users\\eliab\\Documents\\RaidHut\\RAIDHUT\\Desenvolvedor\\atividade2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eliab\\AppData\\Roaming\\NuGet\\NuGet.Config"

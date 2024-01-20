@@ -1,0 +1,83 @@
+::ffff:127.0.0.1 - - [20/Jan/2024:04:43:05 +0000] "POST /user/create HTTP/1.1" 401 42 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [20/Jan/2024:04:43:17 +0000] "POST /user/create HTTP/1.1" 201 293 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [20/Jan/2024:04:44:04 +0000] "POST /create HTTP/1.1" 201 158 "-" "vscode-restclient"
+2024-01-20T04:48:58.673Z User: N/A POST /create 201 156 - 100.325 ms
+2024-01-20T04:49:29.962Z User: N/A POST /create 201 156 - 46.053 ms
+2024-01-20T04:50:32.481Z User: N/A POST /user/create 401 42 - 47.940 ms
+2024-01-20T04:50:37.947Z User: N/A POST /user/create 201 292 - 179.425 ms
+2024-01-20T04:51:29.956Z User: Eliane de Paula POST /user/create 201 291 - 231.812 ms
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:03:00 GMT] "POST /user/logout HTTP/1.1" 200 33 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:09:58 GMT] "POST /user/logout HTTP/1.1" 200 33 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:22:13 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:23:41 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:23:53 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:24:03 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
+::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:24:27 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
+2024-01-20T05:30:50.429Z,User: Eliab Bernardino,POST,function getUrlToken (req) {
+  return req.originalUrl || req.url
+},function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:32:06.776Z User: Eliab Bernardino POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:32:10.745Z User: Eliab Bernardino POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:32:16.164Z User: Eliab Bernardino POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:32:20.263Z User: Eliab Bernardino POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:38:30.920Z User: Eliab Bernardino POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:39:01.539Z User: Eliab Bernardino POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:40:36.121Z User: Storme2107 POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:41:10.465Z User: Storme2107 POST function getUrlToken (req) {
+  return req.originalUrl || req.url
+} function getStatusToken (req, res) {
+  return headersSent(res)
+    ? String(res.statusCode)
+    : undefined
+}
+2024-01-20T05:43:50.859Z User: Storme2107 POST /create 201 176.759 ms
+2024-01-20T05:45:58.319Z User: Storme2107 POST /posts/create 201 135.463 ms
+2024-01-20T05:49:13.693Z User: LordTrin21 POST /posts/create 401 8.599 ms
+2024-01-20T05:49:31.033Z User: LordTrin21 POST /posts/create 201 41.627 ms
+2024-01-20T05:50:21.337Z User: undefined DELETE /posts/delete 200 9.087 ms

@@ -1,8 +1,10 @@
 import express from 'express';
 import { User } from '../DB/models/Usuario.mjs';
 import {criptografarUser, criptografarCampo ,descriptografar} from '../cifras.js'
-const router = express.Router();
+import { logout } from '../logsModels.js';
+import morgan from 'morgan';
 
+const router = express.Router();
 //Retorna um booleano. Caso as senhas sejam iguais True.
 function checkPassword(password, passwordTest, iv){
     return (descriptografar(password, iv) == passwordTest)
@@ -143,10 +145,11 @@ router.post("/login", async (req, res) => {
         res.status(500).json({error: 'Não foi possivel iniciar a seção, tente novamente mais tarde'})
     }   
 })
-
-router.post("/logout", async (req, res) => {
+const logoutLogger = morgan(logout);
+router.post("/logout", logoutLogger, async (req, res) => {
     req.session.destroy();
     res.status(200).json({ message: 'Logout bem-sucedido' });
+    
 })
 
 export default router;

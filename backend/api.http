@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
     "name": "Eliane de Paula",
-    "nick": "LordTyrion",
+    "nick": "LordTrin21",
     "email": "Eliab2107@gmail.com",
     "password": "eueueu"
 }
@@ -61,22 +61,22 @@ Content-Type: application/json
     "password": "eueueu"
 }
 ###
-POST  http://localhost:3000/create 
+POST  http://localhost:3000/posts/create 
 Content-Type: application/json
 
 {
-    "userId": 1,
-    "userName": "Eliab Bernardino",
+    "userId": 2,
+    "userNick": "LordTrin21",
     "text": "Meu pimeiro Post glr"
 }
 
 ###
-POST  http://localhost:3000/create 
+POST  http://localhost:3000/posts/create 
 Content-Type: application/json
 
 {
     "userId": 1,
-    "userName": "Eliab Bernardino",
+    "userNick": "Storme2107",
     "text": "Meu segundo Post glr"
 }
 
@@ -86,7 +86,7 @@ Content-Type: application/json
 
 {
     "userId": 1,
-    "userName": "Eliab Bernardino",
+    "userNick": "Storme2107",
     "text": "Meu terceito Post glr"
 }
 ###
@@ -95,17 +95,18 @@ Content-Type: application/json
 
 {
     "userId": 1,
-    "userName": "Eliab Bernardino",
+    "userNick": "Eliab Bernardino",
     "text": "Meu quarto Post glr"
 }
 
 ###
-DELETE   http://localhost:3000/delete
+DELETE   http://localhost:3000/posts/delete
 Content-Type: application/json
 
 {
     "id": 4,
-    "userId": 1
+    "userId": 2,
+    "userNick" "LordTrin21"
 }
 
 
@@ -125,3 +126,5 @@ Content-Type: application/json
     "nick": "Storme2107",
     "password": "eueueu"
 }
+###
+POST http://localhost:3000/user/logout

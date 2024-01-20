@@ -12,7 +12,7 @@ const Post = sequelize.define('Post', {
         type: DataTypes.STRING,
         allownull: false,
     },
-    userName: {
+    userNick: {
         type: DataTypes.STRING,
         allowNull: false,
     },
