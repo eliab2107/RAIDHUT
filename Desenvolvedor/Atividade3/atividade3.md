@@ -1,7 +1,7 @@
-#Atividade 3
+# Atividade 3
 O A*(A star) é uma algoritmo de busca de melhor caminho, há muitos algoritmos famosos nesta classe um dos principais é o de djkistra. O algoritmo de Djkistra atua sobre um grafo ponderado e determina o caminho mais "curto" ou "ecônomico" entre um vertice de entrada e todos os outros vertices. É este algoritmo que o A* tem como base, entretanto, trás uma alteração ao adicionar uma função heurística para escolher o caminho.
-
-##Funcionamento
+ 
+## Funcionamento
 Como muitos algoritmos de busca o A* guarda uma "fronteira" que são todos os vertices alcançaveis a partir dos pontos já conhecidos, armazenando o peso do caminho até cada um destes, mas para estimar o peso usa uma função heurística que pode variar de acordo com a aplicação. A escolha de qual nó será explorado é sempre o nó com o caminho de menor peso até então, com uma heap para armazenar os nós da fronteira e um função heurística consistente e adimissível o algoritmo tem garantias de eficiência e otimicidade, a principal diferença consiste em:
 
 - 1 Encontra o melhor caminho entre dois nós e não entre um nó e todos os outros.
@@ -10,5 +10,5 @@ Como muitos algoritmos de busca o A* guarda uma "fronteira" que são todos os ve
 
 Apesar de parecer um algoritmo guloso, por escolher a melhor opção disponível, a tomada da decisão no A* para explorar o próximo nó leva em consideração o peso do *caminho* feito até ele, sendo assim as decisão não é tomada apenas de acordo com a melhor opção dentro de um escopo local, cada nó na fronteira guarda o valor do caminho desde o nó inicial, ou seja, leva em consideração um contexto anterior e sendo implementado da maneira correta oferece garantias, isto o diferência de um algoritmo guloso. 
 
-##Aplicando
+## Aplicando
 Quando estudei sobre o A* comecei a pensar em quais situações ele seria aplicavél, a primeira que me dei conta foi no uber, traçar o melhor caminho a partir de um mapa como o da cidade seria menos custuso com uma heurística do que com um avanço sistemático como djkistra(era a referência que eu tinha apra compara na epóca) que cresceria MUITO caso a viagem fosse para um lugar distante. Porém, quando estava jogando percebi que a função de apertar em lugar do mapa e deixar o boneco seguir sozinho também era a aplicação de algoritmo de busca. Dependendo dos jogos e da situação o A* pode ser muito utiliza-lo, por exemplo deixar que boots, NPCs ou outros agentes inteligentes utilizem este algoritmo para se locomover faz bastante sentido principalmente em mapas de RPGs, ou jogos de estratégia que exigem a movimentação de unidades. Um uso péssimo para o A* é sempre qualquer um com uma heurística incosistente ou não admissivel, além destes fatores, em mapas pequenos, não dinâmicos e em ambientes com restrição de desempenho, há outros algoritmos que podem ser mais recomendados, mesmo que precisem de um uso maior de memória.  
