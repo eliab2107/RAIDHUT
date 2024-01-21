@@ -1,144 +1,51 @@
-::ffff:127.0.0.1 - - [20/Jan/2024:04:43:05 +0000] "POST /user/create HTTP/1.1" 401 42 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [20/Jan/2024:04:43:17 +0000] "POST /user/create HTTP/1.1" 201 293 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [20/Jan/2024:04:44:04 +0000] "POST /create HTTP/1.1" 201 158 "-" "vscode-restclient"
-2024-01-20T04:48:58.673Z User: N/A POST /create 201 156 - 100.325 ms
-2024-01-20T04:49:29.962Z User: N/A POST /create 201 156 - 46.053 ms
-2024-01-20T04:50:32.481Z User: N/A POST /user/create 401 42 - 47.940 ms
-2024-01-20T04:50:37.947Z User: N/A POST /user/create 201 292 - 179.425 ms
-2024-01-20T04:51:29.956Z User: Eliane de Paula POST /user/create 201 291 - 231.812 ms
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:03:00 GMT] "POST /user/logout HTTP/1.1" 200 33 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:09:58 GMT] "POST /user/logout HTTP/1.1" 200 33 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:22:13 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:23:41 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:23:53 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:24:03 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
-::ffff:127.0.0.1 - - [Sat, 20 Jan 2024 05:24:27 GMT] "POST /create HTTP/1.1" 500 73 "-" "vscode-restclient"
-2024-01-20T05:30:50.429Z,User: Eliab Bernardino,POST,function getUrlToken (req) {
-  return req.originalUrl || req.url
-},function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:32:06.776Z User: Eliab Bernardino POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:32:10.745Z User: Eliab Bernardino POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:32:16.164Z User: Eliab Bernardino POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:32:20.263Z User: Eliab Bernardino POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:38:30.920Z User: Eliab Bernardino POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:39:01.539Z User: Eliab Bernardino POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:40:36.121Z User: Storme2107 POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:41:10.465Z User: Storme2107 POST function getUrlToken (req) {
-  return req.originalUrl || req.url
-} function getStatusToken (req, res) {
-  return headersSent(res)
-    ? String(res.statusCode)
-    : undefined
-}
-2024-01-20T05:43:50.859Z User: Storme2107 POST /create 201 176.759 ms
-2024-01-20T05:45:58.319Z User: Storme2107 POST /posts/create 201 135.463 ms
-2024-01-20T05:49:13.693Z User: LordTrin21 POST /posts/create 401 8.599 ms
-2024-01-20T05:49:31.033Z User: LordTrin21 POST /posts/create 201 41.627 ms
-2024-01-20T05:50:21.337Z User: undefined DELETE /posts/delete 200 9.087 ms
-2024-01-21T03:58:29.281Z User: Storme2107 POST /user/login 200 32 - 101.869 ms
-2024-01-21T03:58:31.938Z User: Storme2107 POST /user/logout 200 33 - 2.196 ms
-2024-01-21T04:10:29.839Z User: Storme2107 POST /user/logout Status  200 33 - 10.107 ms
-2024-01-21T04:10:31.815Z User: Storme2107 POST /user/logout Status  200 33 - 0.909 ms
-2024-01-21T04:28:46.160Z User: Storme2107 POST /user/create status  201 291 - 147.771 ms
-2024-01-21T04:29:02.788Z User: undefined POST /posts/create status  401 7.688 ms
-2024-01-21T04:29:35.021Z User: Storme2107 POST /posts/create status  401 4.832 ms
-2024-01-21T04:29:44.449Z User: Storme2107 POST /posts/create status  401 6.985 ms
-2024-01-21T04:30:00.461Z User: Storme2107 POST /posts/create status  500 17.886 ms
-2024-01-21T04:30:41.999Z User: Storme2107 POST /posts/create status  401 16.934 ms
-2024-01-21T04:31:17.776Z User: Storme2107 POST /user/create status  201 291 - 210.938 ms
-2024-01-21T04:31:26.763Z User: Storme2107 POST /posts/create status  401 10.088 ms
-2024-01-21T04:32:12.033Z User: Storme2107 POST /posts/create status  500 22.809 ms
-2024-01-21T04:32:56.777Z User: Storme2107 POST /posts/create status  401 18.088 ms
-2024-01-21T04:47:52.005Z User: Storme2107 POST /posts/create status  500 22.030 ms
-2024-01-21T04:49:23.825Z User: Storme2107 POST /posts/create status  500 12.408 ms
-2024-01-21T04:49:36.781Z User: Storme2107 POST /posts/create status  201 65.148 ms
-2024-01-21T04:49:44.997Z User: Storme2107 POST /posts/create status  201 45.441 ms
-2024-01-21T04:49:52.638Z User: Storme2107 POST /posts/create status  201 45.444 ms
-2024-01-21T04:49:57.806Z User: Storme2107 POST /posts/create status  201 60.238 ms
-2024-01-21T04:53:43.509Z User: Storme2107 POST /posts/create status  201 80.029 ms
-2024-01-21T04:53:45.226Z User: Storme2107 POST /posts/create status  201 45.237 ms
-2024-01-21T04:56:44.269Z User: Storme2107 POST /posts/create status  201 73.169 ms
-2024-01-21T04:57:17.845Z User: undefined DELETE /posts/delete status  200 10.114 ms
-2024-01-21T04:58:01.599Z User: undefined DELETE /posts/delete status  500 20.325 ms
-2024-01-21T04:58:14.625Z User: undefined DELETE /posts/delete status  200 15.521 ms
-2024-01-21T04:58:39.302Z User: Zombie10 POST /user/create status  201 289 - 173.543 ms
-2024-01-21T04:58:42.244Z User: N/A DELETE /user/delete status  202 16 - 108.748 ms
-2024-01-21T04:58:54.711Z User: N/A PATCH /user/changepassword status  200 28 - 237.689 ms
-2024-01-21T05:19:28.201Z User: Storme2107 POST /user/create status  401 42 - 20.499 ms
-2024-01-21T05:19:32.451Z User: LordTrin21 POST /user/create status  201 291 - 173.163 ms
-2024-01-21T05:19:42.810Z User: N/A DELETE /user/delete status  406 33 - 5.484 ms
-2024-01-21T05:20:50.868Z User: LordTrin21 POST /user/create status  401 42 - 7.266 ms
-2024-01-21T05:21:08.354Z User: N/A DELETE /user/delete status  406 33 - 5.695 ms
-2024-01-21T05:21:33.770Z User: N/A DELETE /user/delete status  202 16 - 149.639 ms
-2024-01-21T05:21:42.067Z User: N/A PATCH /user/changepassword status  401 27 - 99.607 ms
-2024-01-21T05:22:21.073Z User: N/A PATCH /user/changepassword status  401 27 - 138.059 ms
-2024-01-21T05:23:29.408Z User: N/A PATCH /user/changepassword status  401 27 - 94.490 ms
-2024-01-21T05:25:12.278Z User: LordTrin21 POST /user/create status  201 291 - 147.955 ms
-2024-01-21T05:25:30.375Z User: N/A PATCH /user/changepassword status  406 33 - 7.735 ms
-2024-01-21T05:25:48.595Z User: N/A PATCH /user/changepassword status  200 28 - 367.582 ms
-2024-01-21T05:26:00.937Z User: N/A PATCH /user/changenick status  500 44 - 14.974 ms
-2024-01-21T05:34:00.171Z User: N/A PATCH /user/changepassword status  401 27 - 97.004 ms
-2024-01-21T05:34:14.764Z User: Zombie10 POST /user/create status  201 289 - 187.173 ms
-2024-01-21T05:34:27.525Z User: N/A PATCH /user/changepassword status  200 28 - 246.248 ms
-2024-01-21T05:34:52.623Z User: N/A PATCH /user/changenick status  500 44 - 23.141 ms
-2024-01-21T05:35:39.615Z User: N/A PATCH /user/changenick status  500 44 - 12.095 ms
-2024-01-21T05:39:47.435Z User: N/A PATCH /user/changenick status  500 44 - 27.140 ms
-2024-01-21T05:43:18.062Z User: N/A PATCH /user/changenick status  500 44 - 26.690 ms
-2024-01-21T05:46:16.548Z User: N/A PATCH /user/changenick status  500 44 - 35.394 ms
-2024-01-21T05:47:00.493Z User: N/A PATCH /user/changenick status  200 27 - 114.299 ms
-2024-01-21T05:47:05.311Z User: Storme2107 POST /posts/create status  201 47.964 ms
-2024-01-21T05:47:26.190Z User: undefined DELETE /posts/delete status  200 10.034 ms
-2024-01-21T05:47:47.912Z User: undefined GET /posts/getall status  500 13.384 ms
-2024-01-21T05:50:31.742Z User: undefined GET /posts/getall status  401 98.118 ms
-2024-01-21T05:51:13.625Z User: undefined GET /posts/getall status  200 89.799 ms
-2024-01-21T05:53:15.668Z User: undefined GET /posts/getall status  200 104.006 ms
-2024-01-21T05:53:35.034Z User: Storme2107 POST /user/login status  401 17 - 114.280 ms
-2024-01-21T05:53:39.803Z User: Storme2107 POST /user/login status  401 17 - 106.213 ms
-2024-01-21T05:53:44.589Z User: Storme2107 POST /user/login status  200 32 - 98.802 ms
-2024-01-21T05:53:47.417Z User: Storme2107 POST /user/logout status  200 33 - 0.908 ms
+{"timestamp":"2024-01-21T07:06:52.251Z","User":"Storm2107","Id":"NA","metodo":"POST","url":"/user/create","status":"201","resposta":"290","tempoResposta":"186.938"}
+{"timestamp":"2024-01-21T07:06:54.530Z","User":"LordTrin21","Id":"NA","metodo":"POST","url":"/user/create","status":"201","resposta":"291","tempoResposta":"168.188"}
+{"timestamp":"2024-01-21T07:06:56.819Z","User":"Zombie10","Id":"NA","metodo":"POST","url":"/user/create","status":"201","resposta":"289","tempoResposta":"155.089"}
+{"timestamp":"2024-01-21T07:07:10.099Z","User":"Storme2107","Id":"NA","metodo":"POST","url":"/user/login","status":"400","resposta":"23","tempoResposta":"7.905"}
+{"timestamp":"2024-01-21T07:08:29.263Z","User":"Storm2107","Id":"NA","metodo":"POST","url":"/user/login","status":"401","resposta":"17","tempoResposta":"150.194"}
+{"timestamp":"2024-01-21T07:08:38.693Z","User":"Storm2107","Id":"NA","metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"148.414"}
+{"timestamp":"2024-01-21T17:04:05.742Z","User":"Storm2107","Id":"NA","metodo":"POST","url":"/user/create","status":"401","resposta":"42","tempoResposta":"25.186"}
+{"timestamp":"2024-01-21T17:04:14.714Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/user/create","status":"201","resposta":"289","tempoResposta":"167.916"}
+{"timestamp":"2024-01-21T17:11:01.765Z","User":"Storme2107","Id":"NA","metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"1.377"}
+{"timestamp":"2024-01-21T17:13:27.779Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"500","resposta":"75","tempoResposta":"89.634"}
+{"timestamp":"2024-01-21T17:16:01.049Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"500","resposta":"75","tempoResposta":"97.760"}
+{"timestamp":"2024-01-21T17:18:50.602Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"500","resposta":"75","tempoResposta":"99.071"}
+{"timestamp":"2024-01-21T17:20:00.156Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"500","resposta":"75","tempoResposta":"101.169"}
+{"timestamp":"2024-01-21T17:20:53.004Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"500","resposta":"75","tempoResposta":"98.075"}
+{"timestamp":"2024-01-21T17:21:40.335Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"103.568"}
+{"timestamp":"2024-01-21T17:25:11.096Z","User":"Storme107","Id":"NA","metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"1.441"}
+{"timestamp":"2024-01-21T17:25:16.623Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"108.185"}
+{"timestamp":"2024-01-21T17:38:43.523Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"106.782"}
+{"timestamp":"2024-01-21T17:38:46.345Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"1.028"}
+{"timestamp":"2024-01-21T17:39:00.492Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"102.752"}
+{"timestamp":"2024-01-21T17:39:02.877Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"0.354"}
+{"timestamp":"2024-01-21T17:39:31.483Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"92.533"}
+{"timestamp":"2024-01-21T17:39:33.739Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"1.414"}
+{"timestamp":"2024-01-21T17:41:09.078Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"94.542"}
+{"timestamp":"2024-01-21T17:41:11.434Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"1.782"}
+{"timestamp":"2024-01-21T17:42:08.274Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"92.978"}
+{"timestamp":"2024-01-21T17:42:10.027Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"2.600"}
+{"timestamp":"2024-01-21T17:43:01.246Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"92.424"}
+{"timestamp":"2024-01-21T17:43:03.008Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"1.873"}
+{"timestamp":"2024-01-21T17:45:21.435Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/user/create","status":"401","resposta":"42","tempoResposta":"18.592"}
+{"timestamp":"2024-01-21T17:45:45.223Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"106.279"}
+{"timestamp":"2024-01-21T17:52:31.689Z","User":"Storme107","Id":4,"metodo":"POST","url":"/user/logout","status":"200","resposta":"33","tempoResposta":"3.691"}
+{"timestamp":"2024-01-21T17:52:41.371Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"106.602"}
+{"timestamp":"2024-01-21T17:53:49.085Z","User":"NA","Id":"NA","metodo":"GET","url":"/posts/getall","status":"401","tempoResposta":"94.275"}
+{"timestamp":"2024-01-21T17:54:03.331Z","User":"NA","Id":"NA","metodo":"GET","url":"/posts/getall","status":"200","tempoResposta":"160.538"}
+{"timestamp":"2024-01-21T17:54:12.218Z","User":"Storme107","Id":"NA","metodo":"POST","url":"/posts/create","status":"401","tempoResposta":"6.573"}
+{"timestamp":"2024-01-21T17:54:13.325Z","User":"Storme107","Id":"NA","metodo":"POST","url":"/posts/create","status":"401","tempoResposta":"8.406"}
+{"timestamp":"2024-01-21T17:54:34.985Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/user/create","status":"401","resposta":"42","tempoResposta":"7.060"}
+{"timestamp":"2024-01-21T17:54:57.582Z","User":"Storme107","Id":"NA","metodo":"POST","url":"/posts/create","status":"401","tempoResposta":"6.705"}
+{"timestamp":"2024-01-21T17:56:09.762Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"61.584"}
+{"timestamp":"2024-01-21T17:56:11.494Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"44.525"}
+{"timestamp":"2024-01-21T17:56:12.272Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"42.635"}
+{"timestamp":"2024-01-21T17:59:18.215Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"113.707"}
+{"timestamp":"2024-01-21T17:59:40.496Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"79.944"}
+{"timestamp":"2024-01-21T17:59:42.063Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"58.709"}
+{"timestamp":"2024-01-21T17:59:42.737Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"42.613"}
+{"timestamp":"2024-01-21T18:01:07.556Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"102.874"}
+{"timestamp":"2024-01-21T18:01:10.699Z","User":"Storm107","Id":4,"metodo":"POST","url":"/user/login","status":"200","resposta":"32","tempoResposta":"105.552"}
+{"timestamp":"2024-01-21T18:01:28.452Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"63.765"}
+{"timestamp":"2024-01-21T18:01:29.348Z","User":"Storm107","Id":"NA","metodo":"POST","url":"/posts/create","status":"201","tempoResposta":"53.363"}
+{"timestamp":"2024-01-21T18:01:34.320Z","User":"NA","Id":"NA","metodo":"GET","url":"/posts/getall","status":"200","tempoResposta":"109.517"}

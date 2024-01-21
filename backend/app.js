@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import postsRouter from './routes/posts.js'
 import usersRouter from './routes/user.js'
+import logsRouter from './routes/logs.js'
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -34,7 +35,7 @@ app.use(session({
 
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/logs', logsRouter);
 app.use('/posts', postsRouter);
 app.use('/user', usersRouter);
 

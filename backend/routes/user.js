@@ -1,7 +1,8 @@
 import express from 'express';
 import { User } from '../DB/models/Models.mjs';
 import {criptografarUser, criptografarCampo , checkPassword} from '../cifras.js'
-import { userLogger } from '../logsModels.js';
+import { userLogger, addInSession} from '../logsModels.js';
+import session from 'express-session';
 
 
 const router = express.Router();
@@ -16,15 +17,18 @@ router.post('/create', userLogger, async (req, res) => {
       }
       })
     if (user){
+        req.session.historico = addInSession("createuser", "POST", 200, req.session)
       res.status(401).json({error: 'Este nick já esta sendo usado'})
     }else{
         //ultimo erro aqui
         const userCryptografado = criptografarUser(req.body)
         const novoUser = await User.create(userCryptografado);
+        req.session.historico = addInSession("createuser", "POST", 201, req.session)
         res.status(201).json(novoUser);
       } 
   }catch (err){
     console.error('Erro ao criar novo usuário: ', err)
+    req.session.historico = addInSession("createuser", "POST", 500, req.session)
     res.status(500).json({error: 'Erro no servidor'})
   }
 });
@@ -39,7 +43,8 @@ router.delete('/delete', userLogger, async (req, res, next) => {
          }
         })
         if (!user){
-            res.status(406).json({error: 'Conta não encontrada'})
+            req.session.historico = addInSession("deleteuser", "DELETE", 401, req.session)
+            res.status(401).json({error: 'Conta não encontrada'})
         }
         //pedindo senha para confirmar autorização
         else if (checkPassword(user.password, req.body.password, user.iv)){
@@ -48,11 +53,14 @@ router.delete('/delete', userLogger, async (req, res, next) => {
                     id: req.body.id
                 }
             })
+            req.session.historico = addInSession("deleteuser", "DELETE", 200, req.session)
             res.status(202).json('Conta excluida')
         }else{
+            req.session.historico = addInSession("deleteuser", "DELETE", 401, req.session)
             res.status(401).json({error: 'Exclusão não autorizada'})
         }}catch(err) {
             console.error('Erro ao apagar a conta: ', err)
+            req.session.historico = addInSession("deleteuser", "DELETE", 500, req.session)
             res.status(500).json({error: 'Erro no servidor'})
         }
     }
@@ -78,12 +86,15 @@ router.patch('/changepassword', userLogger, async (req, res, next) => {
         {password: criptografarCampo(newPassword, user.iv) },
         {where: {id: user.id}}
       )
+      req.session.historico = addInSession("changepassword", "PATCH", 200, req.session)
       res.status(200).json('Senha alterada com sucesso')
     }else {
+      req.session.historico = addInSession("changepassword", "PATCH", 401, req.session)
       res.status(401).json({error: 'Senha incorreta'})
     }
   }catch (err){
     console.log("Erro ao alterar a senha: ", err)
+    req.session.historico = addInSession("changepassword", "PATCH", 500, req.session)
     res.status(500).json({error: 'Falha ao alterar senha'})
   }
 });
@@ -103,6 +114,7 @@ router.patch('/changenick', userLogger, async (req, res) => {
         // Se houver o nick não estiver sendo usado entao tenta alterar
         if (user){
             //Caso o nick já esteja sendo usado
+            req.session.historico = addInSession("chagenick", "PATCH", 401, req.session)
             res.status(401).json('Este nick não esta disponível')
         }else {
             const user2 = await User.findOne({
@@ -116,14 +128,17 @@ router.patch('/changenick', userLogger, async (req, res) => {
                     {nick: newNick},
                     {where: {id: id}}
                 )
+                req.session.historico = addInSession("chagenick", "PATCH", 200, req.session)
                 res.status(200).json('Nick alterado com sucesso') 
             } //caso a senha não esteja correta
             else {
+                req.session.historico = addInSession("chagenick", "PATCH", 401, req.session)
                 res.status(401).json('Senha incorreta')
             }
         }        
     }catch (err){
         console.log('Erro ao alterar nick: ', err)
+        req.session.historico = addInSession("chagenick", "PATCH", 500, req.session)
         res.status(500).json({error: 'Não foi possivel alterar o nick'})
     }  
 })
@@ -138,22 +153,28 @@ router.post("/login", userLogger ,async (req, res) => {
             }
         })
         if (!user){
+            req.session.historico = addInSession("login", "POST", 400, req.session)
             res.status(400).json('Este nick não existe')
         }else if(checkPassword(user.password, req.body.password, user.iv)) {
-            req.session.user = { username: user.nick };
+            req.session.user = user.nick 
+            req.session.historico = []
+            req.session.historico = addInSession("login", "POST", 200, req.session)
             res.status(200).json({ message: 'Login bem-sucedido'});
             //res.redirect('/index.html') NOVA PÁGINA APÓS O LOGIN
         }else{
+            req.session.historico = addInSession("login", "POST", 401, req.session)
             res.status(401).json('Senha incorreta')
         }
     }catch (err) {
-        console.log('Erro ao alterar nick: ', err)
+        console.log('Erro ao fazer login: ', err)
         res.status(500).json({error: 'Não foi possivel iniciar a seção, tente novamente mais tarde'})
     }   
 })
 
 //Fazer logout
 router.post("/logout", userLogger, async (req, res) => {
+    const id = req.body.id
+    req.session.historico = addInSession("logout", "POST", 200, req.session)
     req.session.destroy();
     res.status(200).json({ message: 'Logout bem-sucedido' });
     

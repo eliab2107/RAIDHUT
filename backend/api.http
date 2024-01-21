@@ -2,7 +2,7 @@ POST  http://localhost:3000/user/create
 Content-Type: application/json
 
 {
-    "nick": "Storme2107",
+    "nick": "Storm107",
     "email": "Eliab2107@gmail.com",
     "password": "eueueu"
 }
@@ -64,8 +64,8 @@ POST  http://localhost:3000/posts/create
 Content-Type: application/json
 
 {
-    "UserId": 1,
-    "nick": "Storme2107",
+    "UserId": 4,
+    "nick": "Storm107",
     "text": "Meu pimeiro Post glr"
 }
 
@@ -93,8 +93,8 @@ POST  http://localhost:3000/posts/create
 Content-Type: application/json
 
 {
-    "UserId": 1,
-    "nick": "Storme2107",
+    "UserId": 4,
+    "nick": "Storm107",
     "text": "Meu quarto Post glr"
 }
 
@@ -113,8 +113,8 @@ GET   http://localhost:3000/posts/getall
 Content-Type: application/json
 
 {
-    "UserId":1,
-    "password": "eueutu"
+    "UserId":4,
+    "password": "eueueu"
     
 }
 
@@ -123,14 +123,27 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "nick": "Storme2107",
-    "password": "eueutu"
+    "id":4,
+    "nick": "Storm107",
+    "password": "eueueu"
 }
 ###
 POST http://localhost:3000/user/logout
 Content-Type: application/json
 
 {
-    "nick": "Storme2107",
+    "id": 4,
+    "nick": "Storme107",
+    "password": "eueueu"
+}
+
+###
+
+GET http://localhost:3000/logs/
+Content-Type: application/json
+
+{
+    "nick": "Storm107",
+    "id": 4,
     "password": "eueueu"
 }
