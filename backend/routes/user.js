@@ -1,17 +1,13 @@
 import express from 'express';
-import { User } from '../DB/models/Usuario.mjs';
-import {criptografarUser, criptografarCampo ,descriptografar} from '../cifras.js'
-import { logout } from '../logsModels.js';
-import morgan from 'morgan';
+import { User } from '../DB/models/Models.mjs';
+import {criptografarUser, criptografarCampo , checkPassword} from '../cifras.js'
+import { userLogger } from '../logsModels.js';
+
 
 const router = express.Router();
-//Retorna um booleano. Caso as senhas sejam iguais True.
-function checkPassword(password, passwordTest, iv){
-    return (descriptografar(password, iv) == passwordTest)
-}
 
-//criar conta
-router.post('/create', async (req, res) => {
+//Criar conta
+router.post('/create', userLogger, async (req, res) => {
     const nick = req.body.nick
     try {
       const user = await User.findOne({
@@ -34,7 +30,7 @@ router.post('/create', async (req, res) => {
 });
 
 //Deletar conta
-router.delete('/delete', async (req, res, next) => {
+router.delete('/delete', userLogger, async (req, res, next) => {
   
     try {
         const user = await User.findOne({
@@ -63,9 +59,10 @@ router.delete('/delete', async (req, res, next) => {
  
 );
 
-//mudar a senha
-router.patch('/changepassword', async (req, res, next) => {
-  const body = req.body
+//Mudar a senha
+router.patch('/changepassword', userLogger, async (req, res, next) => {
+  const password = req.body.password
+  const newPassword = req.body.newPassword
   const user = await User.findOne({
     where: {
       id: req.body.id,
@@ -75,11 +72,10 @@ router.patch('/changepassword', async (req, res, next) => {
     if (!user){
         res.status(406).json({error: 'Conta não encontrada'})
     }
-    //Checando a senha
-    
-    if (checkPassword(user.password, req.body.password, user.iv)){
+    //Checando a senha, essa função não foi feita para ajudar na recuperação da senha, apenas na troca.
+    else if (checkPassword(user.password, password, user.iv)){
       User.update(
-        {password: criptografarCampo(body.newPassword, user.iv) },
+        {password: criptografarCampo(newPassword, user.iv) },
         {where: {id: user.id}}
       )
       res.status(200).json('Senha alterada com sucesso')
@@ -90,41 +86,51 @@ router.patch('/changepassword', async (req, res, next) => {
     console.log("Erro ao alterar a senha: ", err)
     res.status(500).json({error: 'Falha ao alterar senha'})
   }
-  
 });
 
-//mudar nick
-router.patch('/changenick', async (req, res) => {
-    const body =req.body
-    
+//Mudar nick
+router.patch('/changenick', userLogger, async (req, res) => {
+    const newNick = req.body.newNick;
+    const id = req.body.id
+    const password =  req.body.password
     try {
         //Garantir que mais ninguem usa o mesmo nick
         const user = await User.findOne({
             where: {
-                nick: body.newNick
+                nick: newNick
             }
         })
+        // Se houver o nick não estiver sendo usado entao tenta alterar
         if (user){
+            //Caso o nick já esteja sendo usado
             res.status(401).json('Este nick não esta disponível')
-        }else if (checkPassword(user.password, req.body.password, user.iv)){
-            User.update(
-                {nick: body.newNick},
-                {where: {id:body.id}}
-            )
-            res.status(200).json('Nick alterado com sucesso')
         }else {
-            res.status(401).json('Senha incorreta')
-        }
+            const user2 = await User.findOne({
+                where: {
+                    id: id
+                }
+            })
+            //Se a senha enviada estiver correta então a alteração é feita
+            if(checkPassword(user2.password, password, user2.iv)){
+                User.update(
+                    {nick: newNick},
+                    {where: {id: id}}
+                )
+                res.status(200).json('Nick alterado com sucesso') 
+            } //caso a senha não esteja correta
+            else {
+                res.status(401).json('Senha incorreta')
+            }
+        }        
     }catch (err){
         console.log('Erro ao alterar nick: ', err)
         res.status(500).json({error: 'Não foi possivel alterar o nick'})
     }  
 })
 
-//login
-router.post("/login", async (req, res) => {
+//Fazer login
+router.post("/login", userLogger ,async (req, res) => {
     const nick = req.body.nick
-    const password = req.body.password
     try {
         const user = await User.findOne({
             where: {
@@ -134,8 +140,8 @@ router.post("/login", async (req, res) => {
         if (!user){
             res.status(400).json('Este nick não existe')
         }else if(checkPassword(user.password, req.body.password, user.iv)) {
-            req.session.user = { id: user.id, username: user.nick };
-            res.status(200).json({ message: 'Login bem-sucedido', user: req.session.user });
+            req.session.user = { username: user.nick };
+            res.status(200).json({ message: 'Login bem-sucedido'});
             //res.redirect('/index.html') NOVA PÁGINA APÓS O LOGIN
         }else{
             res.status(401).json('Senha incorreta')
@@ -145,8 +151,9 @@ router.post("/login", async (req, res) => {
         res.status(500).json({error: 'Não foi possivel iniciar a seção, tente novamente mais tarde'})
     }   
 })
-const logoutLogger = morgan(logout);
-router.post("/logout", logoutLogger, async (req, res) => {
+
+//Fazer logout
+router.post("/logout", userLogger, async (req, res) => {
     req.session.destroy();
     res.status(200).json({ message: 'Logout bem-sucedido' });
     

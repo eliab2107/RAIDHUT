@@ -2,7 +2,6 @@ POST  http://localhost:3000/user/create
 Content-Type: application/json
 
 {
-    "name": "Eliab Bernardino",
     "nick": "Storme2107",
     "email": "Eliab2107@gmail.com",
     "password": "eueueu"
@@ -14,7 +13,7 @@ POST  http://localhost:3000/user/create
 Content-Type: application/json
 
 {
-    "name": "Eliane de Paula",
+  
     "nick": "LordTrin21",
     "email": "Eliab2107@gmail.com",
     "password": "eueueu"
@@ -26,7 +25,7 @@ POST  http://localhost:3000/user/create
 Content-Type: application/json
 
 {
-    "name": "Eliab Bernardino",
+    
     "nick": "Zombie10",
     "email": "Eliab2107@gmail.com",
     "password": "eueueu"
@@ -38,7 +37,7 @@ Content-Type: application/json
 
 {
     "password": "eueueu",
-    "id": 2
+    "id": 3
 }
 
 
@@ -48,7 +47,7 @@ Content-Type: application/json
 
 {
     "password": "eueueu",
-    "id": 4,
+    "id": 5,
     "newPassword": "eueutu"
 }
 ###
@@ -56,17 +55,17 @@ PATCH http://localhost:3000/user/changenick
 Content-Type: application/json 
 
 {
-    "id": 2,
+    "id": 4,
     "newNick": "zombie 11",
-    "password": "eueueu"
+    "password": "eueutu"
 }
 ###
 POST  http://localhost:3000/posts/create 
 Content-Type: application/json
 
 {
-    "userId": 2,
-    "userNick": "LordTrin21",
+    "UserId": 1,
+    "nick": "Storme2107",
     "text": "Meu pimeiro Post glr"
 }
 
@@ -75,27 +74,27 @@ POST  http://localhost:3000/posts/create
 Content-Type: application/json
 
 {
-    "userId": 1,
-    "userNick": "Storme2107",
+    "UserId": 1,
+    "nick": "Storme2107",
     "text": "Meu segundo Post glr"
 }
 
 ###
-POST  http://localhost:3000/create 
+POST  http://localhost:3000/posts/create 
 Content-Type: application/json
 
 {
-    "userId": 1,
-    "userNick": "Storme2107",
+    "UserId": 1,
+    "nick": "Storme2107",
     "text": "Meu terceito Post glr"
 }
 ###
-POST  http://localhost:3000/create 
+POST  http://localhost:3000/posts/create 
 Content-Type: application/json
 
 {
-    "userId": 1,
-    "userNick": "Eliab Bernardino",
+    "UserId": 1,
+    "nick": "Storme2107",
     "text": "Meu quarto Post glr"
 }
 
@@ -104,18 +103,19 @@ DELETE   http://localhost:3000/posts/delete
 Content-Type: application/json
 
 {
-    "id": 4,
-    "userId": 2,
-    "userNick" "LordTrin21"
+    "id": 1,
+    "UserId": 1
 }
 
 
 ###
-GET   http://localhost:3000/getall
+GET   http://localhost:3000/posts/getall
 Content-Type: application/json
 
 {
-    "userId":1
+    "UserId":1,
+    "password": "eueutu"
+    
 }
 
 ###
@@ -124,7 +124,13 @@ Content-Type: application/json
 
 {
     "nick": "Storme2107",
-    "password": "eueueu"
+    "password": "eueutu"
 }
 ###
 POST http://localhost:3000/user/logout
+Content-Type: application/json
+
+{
+    "nick": "Storme2107",
+    "password": "eueueu"
+}

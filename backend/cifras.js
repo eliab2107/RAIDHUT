@@ -1,13 +1,13 @@
 import crypto from 'crypto';
 import dotenv from 'dotenv'
 dotenv.config()
-/*DADOS
-{
-            "nick": criptografar(req.body.nick),
-            "password": criptografar(req.body.password),
-            "email": criptografar(req.body.email)
-        } 
-*/
+
+
+/*
+Função para criptografa um usuário
+Recebe como parametro apenas o json de um usuário
+*/ 
+
 function criptografarUser(dados) {
    
     const iv = Buffer.alloc(16);
@@ -27,18 +27,27 @@ function criptografarUser(dados) {
             "iv": iv};
 }
 
+
+/*
+Função para criptografa uma string
+O primeiro parâmetro é a informação a ser descriptografada
+O segundo parâmetro é o iv utilizado para criptografar aquele campo
+*/ 
 function criptografarCampo(info, iv) {
    
     const chave = crypto.scryptSync(process.env.CIPHER_KEY, 'salt', 24)
     const cifra = crypto.createCipheriv(process.env.ALGORITHM, chave, iv);
-    //cifrando o nick
     let criptografado = cifra.update(info, 'utf-8', 'hex');
     criptografado += cifra.final('hex');
     return criptografado
 }
 
 
-
+/*
+Função para descriptografa uma string
+O primeiro parâmetro é a informação a ser descriptografada
+O segundo parâmetro é o iv utilizado para criptografar aquele campo
+*/ 
 function descriptografar(info, iv) {
     const chave = crypto.scryptSync(process.env.CIPHER_KEY, 'salt', 24)
     const algorithm = process.env.ALGORITHM
@@ -49,4 +58,14 @@ function descriptografar(info, iv) {
 
     return dec;
 }
-export {criptografarCampo, descriptografar, criptografarUser};
+
+/* 
+Função para comparar senhas
+O primeiro parâmetro é a senha criptografada
+O segundo parâmetro é a senha enviada pela requisição
+O terceito parâmetro é o iv utilizado para criptografa os dados do usuario
+*/
+function checkPassword(password, passwordTest, iv){
+    return (descriptografar(password, iv) == passwordTest)
+}
+export {criptografarCampo, descriptografar, criptografarUser, checkPassword};

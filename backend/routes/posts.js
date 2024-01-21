@@ -1,21 +1,21 @@
 import express from 'express';
-import {Post} from '../DB/models/Postagem.mjs';
-import {User} from '../DB/models/Usuario.mjs';
-import { Posts, accessLogStream } from '../logsModels.js';
+import {Post, User} from '../DB/models/Models.mjs';
+import { Posts, accessLogStream, postLogger} from '../logsModels.js';
+import { checkPassword } from '../cifras.js';
 import morgan from 'morgan';
 const router = express.Router();
 
+
 //CRIAR POST
-const createpost = morgan(Posts, { stream: accessLogStream } );
-router.post('/create', createpost, async (req, res, next) => {
-  const userId = req.body.userId
+router.post('/create', postLogger, async (req, res) => {
+  const userId = req.body.UserId;
   try {
     const user = await User.findOne({
       where: {
         id: userId
       }
     })
-    if (user && user.nick == req.body.userNick){
+    if (user && user.nick == req.body.nick){
       const post = await Post.create(req.body);
       res.status(201).json(post)
     }else{
@@ -28,15 +28,16 @@ router.post('/create', createpost, async (req, res, next) => {
 });
 
 //APAGAR DELETE
-router.delete("/delete", createpost, async (req, res) => {
-  const body = req.body
+router.delete("/delete", postLogger, async (req, res) => {
+  const userId = req.body.UserId
+  const id = req.body.id
   try {
     const post = await Post.findOne({
       where: {
-        id: body.id
+        id: id
       }
     })
-    if (post.userId == body.userId){
+    if (post.UserId == userId){
       post.destroy()
       res.status(200).json('Post apagado com sucesso')
     }else{
@@ -49,15 +50,31 @@ router.delete("/delete", createpost, async (req, res) => {
 })
 
 //PEGAR TODOS OS POSTS DE UM USUÁRIO
-router.get("/getall", createpost, async (req, res) => {
-  try {
-      
-      const posts =  await Post.findAll({
-      where: {
-        userId: req.body.userId
+router.get("/getall", postLogger, async (req, res) => {
+  const userId =  req.body.UserId
+  const password = req.body.password
+  try {    
+      const user = await User.findOne({
+        where: {
+          id: userId
+        }
+      })
+      if (user){
+        //Exigir autenticação caso estejam enviando requisições maliciosas
+        if (!checkPassword(user.password, password, user.iv )){
+          res.status(401).json({mesage:"Não foi possível carregar a tela"})
+        }else{
+          const posts =  await Post.findAll({
+            where: {
+              UserId: userId
+            }
+          })
+          res.status(200).json(posts)
+        }
+      }else{
+        res.status(401).json({message: "A conta não foi encontrada"})
       }
-    })
-    res.status(200).json(posts)
+      
   }catch (err) {
     console.log("Erro ao criar novo post: ", err)
     res.status(500).json({error: 'Não foi possivel carregar suas postagens, tente novamente mais tarde'})
