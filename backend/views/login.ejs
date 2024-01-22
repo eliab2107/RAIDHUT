@@ -1,0 +1,22 @@
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="user/login" method="post">
+        <label for="nick">Nickname:</label>
+        <input type="text" id="nick" name="nick" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" onclick="entrar()">Entrar</button>
+    </form>
+    <script src="functions.js"></script>
+</body>
+</html>

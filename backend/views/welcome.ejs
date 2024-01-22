@@ -1,0 +1,24 @@
+<!-- views/dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Bem-vindo, <%= user.nickname %>!</h1>
+
+    <div>
+        <label for="postContent">Criar Post:</label>
+        <textarea id="postContent" name="postContent" rows="4" cols="50"></textarea>
+        <button onclick="createPost()">Criar Post</button>
+    </div>
+
+    <div id="postsContainer">
+        <!-- Lista de posts será renderizada aqui -->
+    </div>
+
+    <script src="functions.js"></script>
+</body>
+</html>

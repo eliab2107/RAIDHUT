@@ -1,7 +1,8 @@
 ﻿
 using Atividade2.Models;
-using System;  // Certifique-se de incluir o namespace System Console.WriteLine("Digite o primeiro número:");
+using System;  
 
+//Recebendo as entradas
 string input1 = Console.ReadLine();
 int numA = string.IsNullOrEmpty(input1) ? 0 : int.Parse(input1);
 

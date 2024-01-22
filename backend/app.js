@@ -1,16 +1,16 @@
 import express from 'express';
 import logger from 'morgan';
-import postsRouter from './routes/posts.js'
-import usersRouter from './routes/user.js'
-import logsRouter from './routes/logs.js'
+import postsRouter from './routes/posts.js';
+import usersRouter from './routes/user.js';
+import logsRouter from './routes/logs.js';
+import pagesRouter from './routes/pages.js';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import { sequelize } from './DB/sequelize.js';
 import session from 'express-session';
 import dotenv from 'dotenv';
-
-
+import createError from  'http-errors';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const __path = path
@@ -35,6 +35,7 @@ app.use(session({
 
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/", pagesRouter)
 app.use('/logs', logsRouter);
 app.use('/posts', postsRouter);
 app.use('/user', usersRouter);

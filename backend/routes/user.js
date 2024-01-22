@@ -6,29 +6,32 @@ import session from 'express-session';
 
 
 const router = express.Router();
-
 //Criar conta
-router.post('/create', userLogger, async (req, res) => {
+router.post('/register', userLogger, async (req, res) => {
+    console.log("iniciando cadastro")
     const nick = req.body.nick
+    const password = req.body.password
     try {
       const user = await User.findOne({
         where: {
           nick: nick
       }
       })
-    if (user){
-        req.session.historico = addInSession("createuser", "POST", 200, req.session)
-      res.status(401).json({error: 'Este nick já esta sendo usado'})
-    }else{
+    if (user ){
+      res.status(401).json({error:'Este nick já esta sendo usado' })
+    }else if ( password.length < 8){
+        res.status(401).json({error:'Senha muito curta'})
+    } else{
         //ultimo erro aqui
         const userCryptografado = criptografarUser(req.body)
         const novoUser = await User.create(userCryptografado);
-        req.session.historico = addInSession("createuser", "POST", 201, req.session)
-        res.status(201).json(novoUser);
+        ///res.redirect("http://localhost:3000/login");
+        res.status(200);
+        
       } 
   }catch (err){
     console.error('Erro ao criar novo usuário: ', err)
-    req.session.historico = addInSession("createuser", "POST", 500, req.session)
+   
     res.status(500).json({error: 'Erro no servidor'})
   }
 });

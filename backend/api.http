@@ -1,8 +1,8 @@
-POST  http://localhost:3000/user/create 
+POST  http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "nick": "Storm107",
+    "nick": "tor7",
     "email": "Eliab2107@gmail.com",
     "password": "eueueu"
 }
