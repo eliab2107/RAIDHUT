@@ -10,3 +10,15 @@ A principio, comecei a executar o projeto utilizando nestjs, porém, depois dos 
 
 ## Tarefa preferida
 Se eu tivesse que fazer um ranking diria que essa foi a que eu mais gostei de fazer, apesar de ter consumido mais tempo do que as demais, eu tive uma ideia interessantes para desenvolver, infelizmente não consegue concretizar tudo, me esforcei pra deixar o backend completo o mais rápido possível pois queria completar a aplicação com o frontend, um deploy e até uns testes unitários entraram nos planos. Não consegui terminar tudo que planejei, e acabei não conseguindo entregar tanto quanto desejava na task do frontend e integração,mesmo assim esta tudo aqui, até o ponto em que eu parei. Apesar disso, me sinto satisfeito pelo que consegui concluir nas outras atividades, e grato por ter participado. Agradeço a oportunidade e aguardo um retorno
+
+
+## Para executar este projeto
+
+1 npm install
+2 configurar .env da seguinte maneira
+
+SECRET_KEY = 'ASLDBZVXMJCLOQUEOPASNDASYHSOIASSCDOSNDUAEBLSONOASD'
+CIPHER_KEY = 'Esta e a frase que vou transformar em chave de criptografia'
+ALGORITHM = 'aes-192-cbc'
+
+3 executar app.js
