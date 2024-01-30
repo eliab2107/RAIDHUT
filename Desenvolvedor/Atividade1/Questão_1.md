@@ -1,0 +1,7 @@
+# Explicação
+A solucao parte da ideia de que cada intervalo ao ser comparado com outro pode ter uma intersecção parcial, total ou nula. Em caso de haver uma interseccao parcial é preciso apenas unir ambos os intervalos, em casos de um conjunto estar contido no outro basta selecionar a maior. E se forem do mesmo tamanho e não estiverem repedidos na lista, então pode-se ignora-los.
+Apartir disso, comparo a lista com ela propria determinando quais alterações serão feitas(quais conjuntos serão excluídos) para a próxima iteração do loop externo(o while). Escolhi utilizar os breaks por perceber que com uma lista muito grande seria melhor atualiza-la aos poucos, pois a medida que intervalos fossem excluídos para dar lugar a intervalos maiores, além de aumentar a probabilidade de mesclagem entre os intervalos, também reduzia o tamanho da lista, e como se tratava de um algoritmo com eficiência em grau exponencial, reduzir o tamanho da lista se tornou uma prioridade relevante.  
+
+# OVERVIEW
+Gostei bastante desse desafio e gostei da minha solução final, apesar de a princípio ter tentado bastante contornar o problema
+da eficiência o algoritmo que encontrei infelizmente ainda acaba caindo em um Big(O) bem alto e relativamente imprevisivel.

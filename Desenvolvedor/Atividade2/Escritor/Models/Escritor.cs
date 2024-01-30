@@ -12,6 +12,7 @@ namespace Atividade2.Models
             this.numA = numa;
             this.numB = numb;
         }
+    
         public Escritor (){
         }
         public int numA {get; set;}
@@ -96,7 +97,7 @@ namespace Atividade2.Models
                     }
                 
                 }else{
-                    difAB *= -1; //difAB é negativo e numB é maior que numA  
+                    difAB *= -1;                         //difAB é negativo se numB é maior que numA  
                     if (difAB <= 2 && lastChar != 'b'){ //lastChar != 'b' -> caso seja a primeira rodada e lastchar ainda esteja vazio
                         addLetra(difAB, 'b');
                         numB -= difAB;

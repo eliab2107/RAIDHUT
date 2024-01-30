@@ -1,0 +1,15 @@
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.AssemblyInfoInputs.cache
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.AssemblyInfo.cs
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.csproj.CoreCompileInputs.cache
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.sourcelink.json
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\bin\Debug\net8.0\Atividade1.exe
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\bin\Debug\net8.0\Atividade1.deps.json
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\bin\Debug\net8.0\Atividade1.runtimeconfig.json
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\bin\Debug\net8.0\Atividade1.dll
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\bin\Debug\net8.0\Atividade1.pdb
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.dll
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\refint\Atividade1.dll
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.pdb
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\Atividade1.genruntimeconfig.cache
+C:\Users\eliab\Documents\RaidHut\RAIDHUT\Desenvolvedor\Atividade1\obj\Debug\net8.0\ref\Atividade1.dll
